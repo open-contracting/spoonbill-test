@@ -3,6 +3,7 @@ Resource   tests/resources.robot
 Library    RequestsLibrary
 Library    PostgreSQLDB
 Library    DebugLibrary
+Library    SeleniumLibrary
 
 *** Keywords ***
 Upload file
@@ -11,6 +12,14 @@ Upload file
     ${file_data}=    Get File For Streaming Upload    resources/data.json
     &{files}=    Create Dictionary    file=${file_data}
     ${resp}=    POST On Session    httpbin    uploads/    files=${files}
+#    ${result}=    To Json    ${resp.json()}
+    [Return]  ${resp.json()}
+
+Upload file by url API
+    [Arguments]  ${url}
+    Create Session    httpbin    ${DOMAIN_URL}
+    &{data}=    Create Dictionary    url=${url}
+    ${resp}=    POST On Session    httpbin    urls/    ${data}
 #    ${result}=    To Json    ${resp.json()}
     [Return]  ${resp.json()}
 
@@ -27,3 +36,32 @@ Check task status
     ${task_status}=  Get data form DB  SELECT status FROM celery_taskmeta WHERE task_id = '${task_id}'
     Log  ${task_status}
     Should Contain  ${task_status[0]}  ${exp_status}
+
+Check validation status
+    [Arguments]  ${id}  ${expected}
+    Create Session    httpbin    ${DOMAIN_URL}
+    ${resp}=    GET On Session    httpbin    uploads/${id}
+    Log  ${id}
+    Should Be Equal  '${resp.json()['validation']['is_valid']}'  '${expected}'
+
+Check validation status by url
+    [Arguments]  ${id}  ${expected}
+    Create Session    httpbin    ${DOMAIN_URL}
+    ${resp}=    GET On Session    httpbin    urls/${id}
+    Log  ${id}
+    Should Be Equal  '${resp.json()['validation']['is_valid']}'  '${expected}'
+
+Open new browser
+    [Arguments]    ${Browser}=Chrome    ${alias}=${None}
+    Open Browser    data:,    ${Browser}    alias=${alias}
+    Set Window Size    1600     1081
+
+Upload file by button
+    [Arguments]  ${file_path}=None
+    ${file_element}=  Set Variable  //input[@type='file']
+    Choose File  ${file_element}  ${EXECDIR}/${file_path}
+
+Upload file by url
+    [Arguments]  ${url}=None
+    Input text  //textarea  ${url}
+    Click Element  //span[contains(text(), 'Submit')]/parent::node()
