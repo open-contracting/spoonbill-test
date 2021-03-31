@@ -53,7 +53,11 @@ Check validation status by url
 
 Open new browser
     [Arguments]    ${Browser}=Chrome    ${alias}=${None}
-    Open Browser    data:,    ${Browser}    alias=${alias}
+    ${chrome_options} =     Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${chrome_options}   add_argument    headless
+    Call Method    ${chrome_options}   add_argument    disable-gpu
+    ${options}=     Call Method     ${chrome_options}    to_capabilities
+    Open Browser    data:,    ${Browser}    alias=${alias}  desired_capabilities=${options}
     Set Window Size    1600     1081
 
 Upload file by button
