@@ -2,7 +2,7 @@
 Resource   tests/resources.robot
 Resource   tests/general.robot
 
-
+Suite Setup  run keyword  Set Selenium Speed  0.3
 Test Setup    run keyword    Open new browser
 Test Teardown  run keyword  Close all browsers
 
