@@ -9,4 +9,4 @@ How to run tests:
 5. Download 'chromedriver' - version should be the same as Chrome browser on system
 https://chromedriver.chromium.org/downloads
 6. Unpack 'chromedriver' to {your project}/venv/bin
-7. Run tests ```DOMAIN_URL={domain url} POSTGRES_DB={db_name} POSTGRES_USER={db_user} POSTGRES_PASSWORD={db_password} python -m robot -s queue tests/integration```
+7. Run tests ```DOMAIN_URL={domain url} POSTGRES_DB={db_name} POSTGRES_USER={db_user} POSTGRES_PASSWORD={db_password} SITE_URL={site url} python -m robot tests```
