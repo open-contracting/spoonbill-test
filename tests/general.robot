@@ -4,6 +4,8 @@ Library    RequestsLibrary
 Library    PostgreSQLDB
 Library    DebugLibrary
 Library    SeleniumLibrary
+Library    Collections
+Library    String
 
 *** Keywords ***
 Upload file
@@ -21,6 +23,13 @@ Upload file by url API
     &{data}=    Create Dictionary    url=${url}
     ${resp}=    POST On Session    httpbin    urls/    ${data}
 #    ${result}=    To Json    ${resp.json()}
+    [Return]  ${resp.json()}
+
+
+Get Uploads information
+    [Arguments]  ${id}
+    Create Session    httpbin    ${DOMAIN_URL}
+    ${resp}=    GET On Session    httpbin    uploads/${id}
     [Return]  ${resp.json()}
 
 Connect to DB
