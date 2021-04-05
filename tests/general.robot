@@ -4,6 +4,8 @@ Library    RequestsLibrary
 Library    PostgreSQLDB
 Library    DebugLibrary
 Library    SeleniumLibrary
+Library    Collections
+Library    String
 
 *** Keywords ***
 Upload file
