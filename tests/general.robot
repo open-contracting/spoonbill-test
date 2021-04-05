@@ -25,6 +25,13 @@ Upload file by url API
 #    ${result}=    To Json    ${resp.json()}
     [Return]  ${resp.json()}
 
+
+Get Uploads information
+    [Arguments]  ${id}
+    Create Session    httpbin    ${DOMAIN_URL}
+    ${resp}=    GET On Session    httpbin    uploads/${id}
+    [Return]  ${resp.json()}
+
 Connect to DB
     PostgreSQLDB.Connect To Postgresql  dbname=${POSTGRES_DB}  dbusername=${POSTGRES_USER}  dbpassword=${POSTGRES_PASSWORD}  dbhost=127.0.0.1
 
