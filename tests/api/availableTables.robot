@@ -10,7 +10,8 @@ Available tables
     Check that element exists in Avaliable tables  parties  ${data}
     Check that element exists in Avaliable tables  tenders  ${data}
     Check that element exists in Avaliable tables  awards  ${data}
-    Check that element exists in Avaliable tables  documents  ${data}
+    Check that element exists in Avaliable tables  contracts  ${data}
+    Check that element exists in Avaliable tables  planning  ${data}
 
 
 
