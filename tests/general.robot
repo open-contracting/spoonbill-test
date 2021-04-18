@@ -78,3 +78,38 @@ Upload file by url
     [Arguments]  ${url}=None
     Input text  //textarea  ${url}
     Click Element  //span[contains(text(), 'Submit')]/parent::node()
+
+Select tables by name API
+    [Arguments]  ${names}  ${id}
+    Create Session    httpbin    ${DOMAIN_URL}  disable_warnings=1
+    @{result}=  Create List
+    FOR  ${item}  IN  @{names}
+        ${dict}=  Create Dictionary  name=${item}
+        Append to List  ${result}  ${dict}
+    END
+    &{data}=    Create Dictionary    tables=${result}
+    ${resp}=    POST On Session    httpbin    uploads/${id}/selections/    json=${data}
+    [Return]  ${resp.json()}
+
+
+Exclude by id API
+    [Arguments]  ${file_id}  ${selection_id}  ${table_id}
+    Create Session    httpbin    ${DOMAIN_URL}  disable_warnings=1
+    @{result}=  Create List
+    &{data}=    Create Dictionary    include=${False}
+    ${resp}=    PATCH On Session    httpbin    uploads/${file_id}/selections/${selection_id}/tables/${table_id}/    json=${data}
+    [Return]  ${resp.json()}
+
+
+Include by id API
+    [Arguments]  ${file_id}  ${selection_id}  ${table_id}
+    Create Session    httpbin    ${DOMAIN_URL}  disable_warnings=1
+    @{result}=  Create List
+    &{data}=    Create Dictionary    include=${True}
+    ${resp}=    PATCH On Session    httpbin    uploads/${file_id}/selections/${selection_id}/tables/${table_id}/    json=${data}
+    [Return]  ${resp.json()}
+
+
+Get active status
+    ${status}=  Get Text  //div[contains(@class, 'step--active')]/div
+    [Return]  ${status}
