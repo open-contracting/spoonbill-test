@@ -79,6 +79,12 @@ Upload file by url
     Input text  //textarea  ${url}
     Click Element  //span[contains(text(), 'Submit')]/parent::node()
 
+
+Select language
+    [Arguments]  ${language}
+    Click Element  //div[@class='lang-selector']
+    Click Element  //div[@class="lang" and contains(text(), '${language}')]
+
 Select tables by name API
     [Arguments]  ${names}  ${id}
     Create Session    httpbin    ${DOMAIN_URL}  disable_warnings=1
