@@ -15,7 +15,7 @@ Select tables from Available tables
     Check that element avaliable in the Available tables  Parties
     Check that element avaliable in the Available tables  Tenders
     Check that element avaliable in the Available tables  Awards
-    Check that element avaliable in the Available tables  Documents
+#    Check that element avaliable in the Available tables  Documents
     Select element from "Available tables" list  parties
     Click on "Add" button
     Run Keyword And Expect Error  *  Check that element avaliable in the Available tables  Parties
@@ -34,7 +34,7 @@ Select tables from Available tables
     Run Keyword And Expect Error  *  Check that element avaliable in the Selected tables  Awards
     Check that element avaliable in the Available tables  Parties
     Check that element avaliable in the Available tables  Awards
-    Check that element avaliable in the Available tables  Documents
+#    Check that element avaliable in the Available tables  Documents
 
 
 *** Keywords ***

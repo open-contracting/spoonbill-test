@@ -5,3 +5,5 @@ robotframework-debuglibrary==2.2.1
 robotframework-postgresqldb==2.0.0
 selenium==3.141.0
 requests==2.22.0
+polib==1.1.1
+
