@@ -33,7 +33,7 @@ Get Uploads information
     [Return]  ${resp.json()}
 
 Connect to DB
-    PostgreSQLDB.Connect To Postgresql  dbname=${POSTGRES_DB}  dbusername=${POSTGRES_USER}  dbpassword=${POSTGRES_PASSWORD}  dbhost=http://ocp12.open-contracting.org
+    PostgreSQLDB.Connect To Postgresql  dbname=${POSTGRES_DB}  dbusername=${POSTGRES_USER}  dbpassword=${POSTGRES_PASSWORD}  dbhost=${POSTGRES_HOST}
 
 Get data form DB
     [Arguments]  ${query}
