@@ -87,7 +87,7 @@ Translate "Continue to select tables" button
     Go to  ${MAIN_URL}
     Upload file by button  resources/data.json
     Verify that file validated
-
+    Sleep  1
     ${continue_element}=  Get WebElement  //span[contains(text(), 'Continue to select tables')]
     ${continue}=  Get Text  ${continue_element}
     ${continue_translate}=  METHODS.get_translate_by_text_from_file  ${WEB_TRANSLATE_FILE}  ${continue}

@@ -6,6 +6,7 @@ Resource   tests/general.robot
 Celery task completed successfully after upload file
     [Setup]    run keyword    Connect to DB
     [Teardown]  run keyword    PostgreSQLDB.Close All Postgresql Connections
+    [Tags]  skip
     ${response}=  Upload file  data.json
     ${task_id}=  Get Variable Value  ${response['validation']['task_id']}
     Wait until keyword succeeds
@@ -19,6 +20,7 @@ Celery task completed successfully after upload file
 Celery tasks completed successfully after upload few files
     [Setup]    run keyword    Connect to DB
     [Teardown]  run keyword    PostgreSQLDB.Close All Postgresql Connections
+    [Tags]  skip
     ${response1}=  Upload file  data.json
     ${response2}=  Upload file  data.json
     ${response3}=  Upload file  data.json
