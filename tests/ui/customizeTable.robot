@@ -80,7 +80,7 @@ Verify that file validated
     Wait until keyword succeeds
     ...      5 min
     ...      15 sec
-    ...      Page Should Contain  Analysis has been completed
+    ...      Page Should Contain  Select fields manually
 
 
 Click on "Continue to select tables" button
