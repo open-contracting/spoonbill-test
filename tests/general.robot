@@ -33,7 +33,7 @@ Get Uploads information
     [Return]  ${resp.json()}
 
 Connect to DB
-    PostgreSQLDB.Connect To Postgresql  dbname=${POSTGRES_DB}  dbusername=${POSTGRES_USER}  dbpassword=${POSTGRES_PASSWORD}  dbhost=127.0.0.1
+    PostgreSQLDB.Connect To Postgresql  dbname=${POSTGRES_DB}  dbusername=${POSTGRES_USER}  dbpassword=${POSTGRES_PASSWORD}  dbhost=http://ocp12.open-contracting.org
 
 Get data form DB
     [Arguments]  ${query}
@@ -63,7 +63,7 @@ Check validation status by url
 Open new browser
     [Arguments]    ${Browser}=Chrome    ${alias}=${None}
     ${chrome_options} =     Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-    Call Method    ${chrome_options}   add_argument    headless
+#    Call Method    ${chrome_options}   add_argument    headless
     Call Method    ${chrome_options}   add_argument    disable-gpu
     ${options}=     Call Method     ${chrome_options}    to_capabilities
     Open Browser    data:,    ${Browser}    alias=${alias}  desired_capabilities=${options}
@@ -83,6 +83,7 @@ Upload file by url
 Select language
     [Arguments]  ${language}
     Click Element  //div[@class='lang-selector']
+    Sleep  1
     Click Element  //div[@class="lang" and contains(text(), '${language}')]
 
 Select tables by name API

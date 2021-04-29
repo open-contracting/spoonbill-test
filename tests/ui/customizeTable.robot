@@ -101,11 +101,11 @@ Check that element avaliable in the Available tables
 
 Check that selection table displays on page
     [Arguments]  ${list}
-    Wait Until Element Is Visible  //h3[contains(@class, 'table__name')]
-    ${current_selection}=  Get WebElement  //h3[contains(@class, 'table__name')]
-    ${current_selection}=  Get Text  ${current_selection}
-    ${current_selection}=  Convert To Lower Case  ${current_selection}
-    List Should Contain Value  ${list}  ${current_selection}
+    Wait Until Element Is Visible  //div[@role='tab']
+    ${current_selection}=  Get WebElements  //div[@role='tab']
+    ${current_selection}=  Get Length  ${current_selection}
+    ${expected}=  Get Length  ${list}
+    Should Be Equal  ${current_selection}  ${expected}
 
 
 Check that element avaliable in the Selected tables
