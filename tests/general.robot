@@ -6,6 +6,7 @@ Library    DebugLibrary
 Library    SeleniumLibrary
 Library    Collections
 Library    String
+Library    OperatingSystem
 
 *** Keywords ***
 Upload file
@@ -62,9 +63,14 @@ Check validation status by url
 
 Open new browser
     [Arguments]    ${Browser}=Chrome    ${alias}=${None}
+    ${download directory}    Join Path    ${OUTPUT DIR}    downloads_result
+    Create Directory    ${download directory}
     ${chrome_options} =     Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-#    Call Method    ${chrome_options}   add_argument    headless
+    Call Method    ${chrome_options}   add_argument    headless
     Call Method    ${chrome_options}   add_argument    disable-gpu
+    ${disabled}    Create List    Chrome PDF Viewer
+    ${prefs}    Create Dictionary    download.default_directory=${download directory}    plugins.plugins_disabled=${disabled}
+    Call Method    ${chrome options}    add_experimental_option    prefs    ${prefs}
     ${options}=     Call Method     ${chrome_options}    to_capabilities
     Open Browser    data:,    ${Browser}    alias=${alias}  desired_capabilities=${options}
     Set Window Size    1600     1081
