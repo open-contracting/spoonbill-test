@@ -56,7 +56,10 @@ Download csv
     Click on "Generate tables as individual CSV files" button
     Wait Until Element Is Enabled  //div[contains(@class, 'download-block completed')][1]  timeout=30
     Click on "Download CSV" button
-    Download should be done  ${OUTPUT DIR}/downloads_result
+    ${file}=  Download should be done  ${OUTPUT DIR}/downloads_result
+    Archive Should Contain File  ${file}  contracts.csv
+    Archive Should Contain File  ${file}  parties.csv
+    Archive Should Contain File  ${file}  tenders.csv
 
 *** Keywords ***
 Verify that file validated

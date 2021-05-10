@@ -7,6 +7,7 @@ Library    SeleniumLibrary
 Library    Collections
 Library    String
 Library    OperatingSystem
+Library    ArchiveLibrary
 
 *** Keywords ***
 Upload file
