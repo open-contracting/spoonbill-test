@@ -31,7 +31,7 @@ Customize table
     Check that selection table displays on page  ${list}
     Click on "Save and Continue" button
     ${current_status}=  Get active status
-    Should Be Equal  ${current_status}  Edit headings
+    Should Be Equal  ${current_status}  Edit tables
 
 Customize table (Remove table)
     Go to  ${MAIN_URL}
@@ -58,7 +58,7 @@ Customize table (Remove table)
     Check that selection table displays on page  ${list}
     Click on "Save and Continue" button
     ${current_status}=  Get active status
-    Should Be Equal  ${current_status}  Edit headings
+    Should Be Equal  ${current_status}  Customize tables
 
 Customize table (Selection only one)
     Go to  ${MAIN_URL}
@@ -72,7 +72,7 @@ Customize table (Selection only one)
     Check that selection table displays on page  ${list}
     Click on "Save and Continue" button
     ${current_status}=  Get active status
-    Should Be Equal  ${current_status}  Edit headings
+    Should Be Equal  ${current_status}  Edit tables
 
 
 *** Keywords ***
