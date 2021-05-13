@@ -75,6 +75,21 @@ Customize table (Selection only one)
     Should Be Equal  ${current_status}  Edit tables
 
 
+Customize table (splitting)
+    Go to  ${MAIN_URL}
+    Upload file by button  resources/2021-03-03.json
+    Verify that file validated
+    Click on "Continue to select tables" button
+    Multi select from "Available tables" list  awards
+    Click on "Add" button
+    Click on "Continue" button
+    Click on "Split arrays into separate tables"
+    Sleep  1
+    ${split_tables}=  Get WebElements  //div[@class='app-table']
+    ${count_tables}=  Get Length  ${split_tables}
+    Should Be Equal  '${count_tables}'  '3'
+
+
 *** Keywords ***
 Verify that file validated
     Wait until keyword succeeds
@@ -153,3 +168,6 @@ Click on "Remove table" button
 
 Click on "Confirm Remove table" button
     Click Element  //span[contains(text(), 'Yes, remove table and continue')]/parent::node()
+
+Click on "Split arrays into separate tables"
+    Click Element  //label[contains(text(), 'Split arrays into separate tables')]
