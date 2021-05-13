@@ -31,7 +31,7 @@ Customize table
     Check that selection table displays on page  ${list}
     Click on "Save and Continue" button
     ${current_status}=  Get active status
-    Should Be Equal  ${current_status}  Edit headings
+    Should Be Equal  ${current_status}  Edit tables
 
 Customize table (Remove table)
     Go to  ${MAIN_URL}
@@ -58,7 +58,7 @@ Customize table (Remove table)
     Check that selection table displays on page  ${list}
     Click on "Save and Continue" button
     ${current_status}=  Get active status
-    Should Be Equal  ${current_status}  Edit headings
+    Should Be Equal  ${current_status}  Customize tables
 
 Customize table (Selection only one)
     Go to  ${MAIN_URL}
@@ -72,7 +72,22 @@ Customize table (Selection only one)
     Check that selection table displays on page  ${list}
     Click on "Save and Continue" button
     ${current_status}=  Get active status
-    Should Be Equal  ${current_status}  Edit headings
+    Should Be Equal  ${current_status}  Edit tables
+
+
+Customize table (splitting)
+    Go to  ${MAIN_URL}
+    Upload file by button  resources/2021-03-03.json
+    Verify that file validated
+    Click on "Continue to select tables" button
+    Multi select from "Available tables" list  awards
+    Click on "Add" button
+    Click on "Continue" button
+    Click on "Split arrays into separate tables"
+    Sleep  1
+    ${split_tables}=  Get WebElements  //div[@class='app-table']
+    ${count_tables}=  Get Length  ${split_tables}
+    Should Be Equal  '${count_tables}'  '3'
 
 
 *** Keywords ***
@@ -153,3 +168,6 @@ Click on "Remove table" button
 
 Click on "Confirm Remove table" button
     Click Element  //span[contains(text(), 'Yes, remove table and continue')]/parent::node()
+
+Click on "Split arrays into separate tables"
+    Click Element  //label[contains(text(), 'Split arrays into separate tables')]
