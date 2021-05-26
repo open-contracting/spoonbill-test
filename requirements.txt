@@ -7,4 +7,6 @@ selenium==3.141.0
 requests==2.22.0
 polib==1.1.1
 robotframework-archivelibrary==0.4.0
-
+robotframework-excellib==2.0.1
+-i https://test.pypi.org/simple
+spoonbill
