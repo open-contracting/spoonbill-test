@@ -8,6 +8,9 @@ Library    Collections
 Library    String
 Library    OperatingSystem
 Library    ArchiveLibrary
+Library    Process
+Library    ExcelLibrary
+
 
 *** Keywords ***
 Upload file
