@@ -23,14 +23,14 @@ Translate stepper header
     ${download_translate}=  METHODS.get_translate_by_text_from_file  ${WEB_TRANSLATE_FILE}  ${download}
 
     Select language  Spanish
-
+    Sleep  1
     ${stepper_items_spanish}=  Get WebElements  //div[@class="v-stepper__label"]/span
     ${upload_file_spanish}=  Get Text  ${stepper_items_spanish[0]}
     ${select_data_spanish}=  Get Text  ${stepper_items_spanish[1]}
     ${customize_tables_spanish}=  Get Text  ${stepper_items_spanish[2]}
     ${edit_headings_spanish}=  Get Text  ${stepper_items_spanish[3]}
     ${download_spanish}=  Get Text  ${stepper_items_spanish[4]}
-
+    debug
     Should Be Equal  ${upload_file_translate}  ${upload_file_spanish}
     Should Be Equal  ${select_data_translate}  ${select_data_spanish}
     Should Be Equal  ${customize_tables_translate}  ${customize_tables_spanish}
