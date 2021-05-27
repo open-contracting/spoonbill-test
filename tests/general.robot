@@ -37,19 +37,6 @@ Get Uploads information
     ${resp}=    GET On Session    httpbin    uploads/${id}/
     [Return]  ${resp.json()}
 
-Connect to DB
-    PostgreSQLDB.Connect To Postgresql  dbname=${POSTGRES_DB}  dbusername=${POSTGRES_USER}  dbpassword=${POSTGRES_PASSWORD}  dbhost=${POSTGRES_HOST}
-
-Get data form DB
-    [Arguments]  ${query}
-    @{query}=  Execute Sql String  ${query}
-    [Return]  @{query}
-
-Check task status
-    [Arguments]  ${task_id}  ${exp_status}
-    ${task_status}=  Get data form DB  SELECT status FROM celery_taskmeta WHERE task_id = '${task_id}'
-    Log  ${task_status}
-    Should Contain  ${task_status[0]}  ${exp_status}
 
 Check validation status
     [Arguments]  ${id}  ${expected}
