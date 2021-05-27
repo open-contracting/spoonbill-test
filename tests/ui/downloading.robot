@@ -145,11 +145,11 @@ Click on "Download CSV" button
 
 Click on "Generate as a multi sheet XLSX" button
     Scroll Element Into View  //h1
-    Click Element  //span[contains(text(), 'Generate as a multi sheet XLSX')]/parent::node()
+    Click Element  //span[contains(text(), 'Generate XLSX')]/parent::node()
 
 Click on "Generate tables as individual CSV files" button
     Scroll Element Into View  //h1
-    Click Element  //span[contains(text(), 'Generate tables as individual CSV files')]/parent::node()
+    Click Element  //span[contains(text(), 'Generate CSV')]/parent::node()
 
 Get tables from the page
     ${tables}=  Get WebElements  //div[@class='app-table']

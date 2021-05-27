@@ -28,7 +28,7 @@ Check "OCDS headings only"
     ${count}=  Get count of thead by index  1
     Should Be Equal  '${count}'  '1'
     ${c_names}=  Get columnns by index  1  1
-    Should Be Equal  '/awards/items/0/additionalClassifications/0/description'  '${c_names[0]}'
+    Should Be Equal  '/awards/date'  '${c_names[4]}'
 
 
 Check "English user friendly headings to all tables"
@@ -56,8 +56,8 @@ Check "English user friendly headings to all tables"
     Should Be Equal  '${count}'  '2'
     ${thead1}=  Get columnns by index  1  1
     ${thead2}=  Get columnns by index  1  2
-    Should Be Equal  'Classification Description'  '${thead1[0]}'
-    Should Be Equal  '/awards/items/0/additionalClassifications/0/description'  '${thead2[0]}'
+    Should Be Equal  'Award Date'  '${thead1[4]}'
+    Should Be Equal  '/awards/date'  '${thead2[4]}'
 
 
 Check "English R friendly headings to all tables"
@@ -81,8 +81,8 @@ Check "English R friendly headings to all tables"
     Should Be Equal  '${count}'  '2'
     ${thead1}=  Get columnns by index  1  1
     ${thead2}=  Get columnns by index  1  2
-    Should Be Equal  'address_postal_code'  '${thead1[0]}'
-    Should Be Equal  '/parties/address/postalCode'  '${thead2[0]}'
+    Should Be Equal  'organization_entity_id'  '${thead1[4]}'
+    Should Be Equal  '/parties/id'  '${thead2[4]}'
 
 
 Check "Spanish user friendly headings to all tables"
@@ -102,8 +102,8 @@ Check "Spanish user friendly headings to all tables"
     Should Be Equal  '${count}'  '2'
     ${thead1}=  Get columnns by index  1  1
     ${thead2}=  Get columnns by index  1  2
-    Should Be Equal  'Moneda'  '${thead1[0]}'
-    Should Be Equal  '/planning/budget/amount/currency'  '${thead2[0]}'
+    Should Be Equal  'Fuente de los Datos'  '${thead1[5]}'
+    Should Be Equal  '/planning/budget/description'  '${thead2[5]}'
 
 
 Check "Spanish R friendly headings to all tables"
@@ -123,8 +123,8 @@ Check "Spanish R friendly headings to all tables"
     Should Be Equal  '${count}'  '2'
     ${thead1}=  Get columnns by index  1  1
     ${thead2}=  Get columnns by index  1  2
-    Should Be Equal  'moneda'  '${thead1[0]}'
-    Should Be Equal  '/planning/budget/amount/currency'  '${thead2[0]}'
+    Should Be Equal  'fuente_de_los_datos'  '${thead1[5]}'
+    Should Be Equal  '/planning/budget/description'  '${thead2[5]}'
 
 
 *** Keywords ***
@@ -180,6 +180,7 @@ Select element from "Available tables" list
 Multi select from "Available tables" list
     [Arguments]  ${element}
     ${element}=  Convert To Lower Case  ${element}
+    Wait Until Element Is Enabled  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]
     Click Element  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]  modifier=CTRL
 
 

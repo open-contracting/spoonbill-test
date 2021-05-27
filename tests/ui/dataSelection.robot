@@ -14,27 +14,25 @@ Select tables from Available tables
     Click on "Continue to select tables" button
     Check that element avaliable in the Available tables  Parties
     Check that element avaliable in the Available tables  Tenders
-    Check that element avaliable in the Available tables  Awards
-#    Check that element avaliable in the Available tables  Documents
+    Check that element avaliable in the Available tables  Documents
     Select element from "Available tables" list  parties
     Click on "Add" button
     Run Keyword And Expect Error  *  Check that element avaliable in the Available tables  Parties
     Multi select from "Available tables" list  tenders
-    Multi select from "Available tables" list  awards
+    Multi select from "Available tables" list  documents
     Click on "Add" button
     Run Keyword And Expect Error  *  Check that element avaliable in the Available tables  Tenders
-    Run Keyword And Expect Error  *  Check that element avaliable in the Available tables  Awards
+    Run Keyword And Expect Error  *  Check that element avaliable in the Available tables  Documents
     Check that element avaliable in the Selected tables  Parties
     Check that element avaliable in the Selected tables  Tenders
-    Check that element avaliable in the Selected tables  Awards
+    Check that element avaliable in the Selected tables  Documents
     Multi select from "Selected tables" list  parties
-    Multi select from "Selected tables" list  awards
+    Multi select from "Selected tables" list  documents
     Click on "Remove" button
     Run Keyword And Expect Error  *  Check that element avaliable in the Selected tables  Parties
-    Run Keyword And Expect Error  *  Check that element avaliable in the Selected tables  Awards
+    Run Keyword And Expect Error  *  Check that element avaliable in the Selected tables  Documents
     Check that element avaliable in the Available tables  Parties
-    Check that element avaliable in the Available tables  Awards
-#    Check that element avaliable in the Available tables  Documents
+    Check that element avaliable in the Available tables  Documents
 
 
 *** Keywords ***
