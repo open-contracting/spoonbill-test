@@ -9,9 +9,9 @@ Available tables
     ${data}=  Get Uploads information  ${id}
     Check that element exists in Avaliable tables  parties  ${data}
     Check that element exists in Avaliable tables  tenders  ${data}
-    Check that element exists in Avaliable tables  awards  ${data}
-    Check that element exists in Avaliable tables  contracts  ${data}
-    Check that element exists in Avaliable tables  planning  ${data}
+    Check that element exists in Avaliable tables  documents  ${data}
+    Run Keyword And Expect Error  *  Check that element exists in Avaliable tables  contracts  ${data}
+    Run Keyword And Expect Error  *  Check that element exists in Avaliable tables  planning  ${data}
 
 
 
