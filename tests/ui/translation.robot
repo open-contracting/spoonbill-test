@@ -30,12 +30,11 @@ Translate stepper header
     ${customize_tables_spanish}=  Get Text  ${stepper_items_spanish[2]}
     ${edit_headings_spanish}=  Get Text  ${stepper_items_spanish[3]}
     ${download_spanish}=  Get Text  ${stepper_items_spanish[4]}
-    debug
-    Should Be Equal  ${upload_file_translate}  ${upload_file_spanish}
-    Should Be Equal  ${select_data_translate}  ${select_data_spanish}
-    Should Be Equal  ${customize_tables_translate}  ${customize_tables_spanish}
-    Should Be Equal  ${edit_headings_translate}  ${edit_headings_spanish}
-    Should Be Equal  ${download_translate}  ${download_spanish}
+    Run Keyword If  '${upload_file_translate}' != '${Empty}'   Should Be Equal  ${upload_file_translate}  ${upload_file_spanish}
+    Run Keyword If  '${select_data_translate}' != '${Empty}'  Should Be Equal  ${select_data_translate}  ${select_data_spanish}
+    Run Keyword If  '${customize_tables_translate}' != '${Empty}'  Should Be Equal  ${customize_tables_translate}  ${customize_tables_spanish}
+    Run Keyword If  '${edit_headings_translate}' != '${Empty}'  Should Be Equal  ${edit_headings_translate}  ${edit_headings_spanish}
+    Run Keyword If  '${download_translate}' != '${Empty}'  Should Be Equal  ${download_translate}  ${download_spanish}
 
 
 Translate Upload Json File button
@@ -203,7 +202,6 @@ Translate on Customize table page
     Should Be Equal  ${Available data_translate}  ${Available tables translated}
     Should Be Equal  ${Remove table_translate}  ${Remove table translated}
     Should Be Equal  ${Save and Continue_translate}  ${Save and Continue translated}
-
 
 
 *** Keywords ***
