@@ -2,7 +2,8 @@
 *** Settings ***
 Resource   tests/resources.robot
 Resource   tests/general.robot
-
+Test Setup   run keyword  Close Current Excel Document
+Test Teardown  run keyword  Close Current Excel Document
 
 *** Test Cases ***
 CLI simple test
@@ -44,6 +45,7 @@ CLI test --human option
     File should exists  resources/data.json.state
     File should exists  resources/test.xlsx
     Open Excel Document  resources/test.xlsx  doc_id=result
+
     ${xlsx_tenders_row}=  Read Excel Row  0  sheet_name=tenders
     ${xlsx_parties_row}=  Read Excel Row  0  sheet_name=parties
     Check list does not contain symbol  ${xlsx_tenders_row}  /
@@ -51,6 +53,12 @@ CLI test --human option
     Check list does not contain symbol  ${xlsx_parties_row}  /
     Check list does not contain symbol  ${xlsx_parties_row}  _
 
+    ${csv_tenders_title}=  read csv as list  resources/tenders.csv
+    ${csv_parties_title}=  read csv as list  resources/parties.csv
+    Check list does not contain symbol  ${csv_tenders_title[0]}  /
+    Check list does not contain symbol  ${csv_tenders_title[0]}  _
+    Check list does not contain symbol  ${csv_parties_title[0]}  /
+    Check list does not contain symbol  ${csv_parties_title[0]}  _
 
 *** Keywords ***
 File should exists

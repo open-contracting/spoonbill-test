@@ -10,6 +10,7 @@ Library    OperatingSystem
 Library    ArchiveLibrary
 Library    Process
 Library    ExcelLibrary
+Library    CSVLib
 
 
 *** Keywords ***
