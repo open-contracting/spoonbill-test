@@ -7,72 +7,72 @@ Test Setup    run keyword    Open new browser
 Test Teardown  run keyword  Close all browsers
 
 *** Test Cases ***
-#Customize table
-#    Go to  ${MAIN_URL}
-#    Upload file by button  resources/data1.json
-#    Verify that file validated
-#    Click on "Continue to select tables" button
-#    Multi select from "Available tables" list  tenders
-#    Multi select from "Available tables" list  awards
-#    Multi select from "Available tables" list  contracts
-#    Multi select from "Available tables" list  planning
-#    Multi select from "Available tables" list  parties
-#    Click on "Add" button
-#    Click on "Continue" button
-#    @{list}=  Create List  tenders  awards  contracts  planning  parties
-#    Check that selection table displays on page  ${list}
-#    Click on "Save and Continue" button
-#    Check that selection table displays on page  ${list}
-#    Click on "Save and Continue" button
-#    Check that selection table displays on page  ${list}
-#    Click on "Save and Continue" button
-#    Check that selection table displays on page  ${list}
-#    Click on "Save and Continue" button
-#    Check that selection table displays on page  ${list}
-#    Click on "Save and Continue" button
-#    ${current_status}=  Get active status
-#    Should Be Equal  ${current_status}  Edit tables
-#
-#Customize table (Remove table)
-#    Go to  ${MAIN_URL}
-#    Upload file by button  resources/data1.json
-#    Verify that file validated
-#    Click on "Continue to select tables" button
-#    Multi select from "Available tables" list  tenders
-#    Multi select from "Available tables" list  awards
-#    Multi select from "Available tables" list  contracts
-#    Multi select from "Available tables" list  planning
-#    Multi select from "Available tables" list  parties
-#    Click on "Add" button
-#    Click on "Continue" button
-#    @{list}=  Create List  tenders  awards  contracts  planning  parties
-#    Check that selection table displays on page  ${list}
-#    Click on "Remove table" button
-#    Click on "Confirm Remove table" button
-#    Check that selection table displays on page  ${list}
-#    Click on "Save and Continue" button
-#    Check that selection table displays on page  ${list}
-#    Click on "Save and Continue" button
-#    Check that selection table displays on page  ${list}
-#    Click on "Save and Continue" button
-#    Check that selection table displays on page  ${list}
-#    Click on "Save and Continue" button
-#    ${current_status}=  Get active status
-#    Should Be Equal  ${current_status}  Customize tables
-#
-#Customize table (Selection only one)
-#    Go to  ${MAIN_URL}
-#    Upload file by button  resources/data1.json
-#    Verify that file validated
-#    Click on "Continue to select tables" button
-#    Multi select from "Available tables" list  tenders
-#    Click on "Add" button
-#    Click on "Continue" button
-#    @{list}=  Create List  tenders
-#    Check that selection table displays on page  ${list}
-#    Click on "Save and Continue" button
-#    ${current_status}=  Get active status
-#    Should Be Equal  ${current_status}  Edit tables
+Customize table
+    Go to  ${MAIN_URL}
+    Upload file by button  resources/data1.json
+    Verify that file validated
+    Click on "Continue to select tables" button
+    Multi select from "Available tables" list  tenders
+    Multi select from "Available tables" list  awards
+    Multi select from "Available tables" list  contracts
+    Multi select from "Available tables" list  planning
+    Multi select from "Available tables" list  parties
+    Click on "Add" button
+    Click on "Continue" button
+    @{list}=  Create List  tenders  awards  contracts  planning  parties
+    Check that selection table displays on page  ${list}
+    Click on "Save and Continue" button
+    Check that selection table displays on page  ${list}
+    Click on "Save and Continue" button
+    Check that selection table displays on page  ${list}
+    Click on "Save and Continue" button
+    Check that selection table displays on page  ${list}
+    Click on "Save and Continue" button
+    Check that selection table displays on page  ${list}
+    Click on "Save and Continue" button
+    ${current_status}=  Get active status
+    Should Be Equal  ${current_status}  Edit headings
+
+Customize table (Remove table)
+    Go to  ${MAIN_URL}
+    Upload file by button  resources/data1.json
+    Verify that file validated
+    Click on "Continue to select tables" button
+    Multi select from "Available tables" list  tenders
+    Multi select from "Available tables" list  awards
+    Multi select from "Available tables" list  contracts
+    Multi select from "Available tables" list  planning
+    Multi select from "Available tables" list  parties
+    Click on "Add" button
+    Click on "Continue" button
+    @{list}=  Create List  tenders  awards  contracts  planning  parties
+    Check that selection table displays on page  ${list}
+    Click on "Remove table" button
+    Click on "Confirm Remove table" button
+    Check that selection table displays on page  ${list}
+    Click on "Save and Continue" button
+    Check that selection table displays on page  ${list}
+    Click on "Save and Continue" button
+    Check that selection table displays on page  ${list}
+    Click on "Save and Continue" button
+    Check that selection table displays on page  ${list}
+    Click on "Save and Continue" button
+    ${current_status}=  Get active status
+    Should Be Equal  ${current_status}  Preview tables
+
+Customize table (Selection only one)
+    Go to  ${MAIN_URL}
+    Upload file by button  resources/data1.json
+    Verify that file validated
+    Click on "Continue to select tables" button
+    Multi select from "Available tables" list  tenders
+    Click on "Add" button
+    Click on "Continue" button
+    @{list}=  Create List  tenders
+    Check that selection table displays on page  ${list}
+    Click on "Save and Continue" button
+    ${current_status}=  Get active status
+    Should Be Equal  ${current_status}  Edit headings
 
 
 Customize table (splitting)
@@ -137,6 +137,8 @@ Check that element avaliable in the Selected tables
 Select element from "Available tables" list
     [Arguments]  ${element}
     ${element}=  Convert To Lower Case  ${element}
+    Wait Until Element Is Enabled  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]
+    Sleep  1
     Click Element  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]
 
 
@@ -144,6 +146,7 @@ Multi select from "Available tables" list
     [Arguments]  ${element}
     ${element}=  Convert To Lower Case  ${element}
     Wait Until Element Is Enabled  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]
+    Sleep  1
     Click Element  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]  modifier=CTRL
 
 
