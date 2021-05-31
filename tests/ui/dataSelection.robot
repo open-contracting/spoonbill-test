@@ -52,6 +52,7 @@ Click on "Continue to select tables" button
 Check that element avaliable in the Available tables
     [Arguments]  ${element}
     @{result}=  Create List
+    Sleep  1
     ${available_items}=  Get WebElements  //p[contains(text(), 'Available tables')]/following-sibling::div//span[@class='table-info__name']
     FOR  ${item}  IN  @{available_items}
         ${item_name}=  Get Text  ${item}
