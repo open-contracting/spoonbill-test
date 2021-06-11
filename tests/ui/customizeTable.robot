@@ -76,6 +76,7 @@ Customize table (Selection only one)
 
 
 Customize table (splitting)
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     Upload file by button  resources/2021-03-03.json
     Verify that file validated

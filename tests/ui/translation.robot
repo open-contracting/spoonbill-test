@@ -9,6 +9,7 @@ Test Teardown  run keyword  Close all browsers
 
 *** Test Cases ***
 Translate stepper header
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     ${stepper_items}=  Get WebElements  //div[@class="v-stepper__label"]/span
     ${upload_file}=  Get Text  ${stepper_items[0]}
@@ -38,6 +39,7 @@ Translate stepper header
 
 
 Translate Upload Json File button
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     ${upload_json_file_element}=  Get WebElement  //div[contains(text(), 'Upload JSON file')]
     ${upload_json_file}=  Get Text  ${upload_json_file_element}
@@ -53,6 +55,7 @@ Translate Upload Json File button
 
 
 Translate Supply a URL for JSON button
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     ${upload_json_url_element}=  Get WebElement  //div[contains(text(), 'Supply a URL for JSON')]
     ${upload_json_url}=  Get Text  ${upload_json_url_element}
@@ -68,6 +71,7 @@ Translate Supply a URL for JSON button
 
 
 Translate Browse files button
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     ${browse_files_element}=  Get WebElement  //span[contains(text(), 'Browse files')]
     ${browse_files}=  Get Text  ${browse_files_element}
@@ -83,6 +87,7 @@ Translate Browse files button
 
 
 Translate "Continue to select tables" button
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     Upload file by button  resources/data.json
     Verify that file validated
@@ -100,6 +105,7 @@ Translate "Continue to select tables" button
 
 
 Translate on Select Data page
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     Upload file by button  resources/data.json
     Verify that file validated
@@ -158,6 +164,7 @@ Translate on Select Data page
 
 
 Translate on Customize table page
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     Upload file by button  resources/data.json
     Verify that file validated
