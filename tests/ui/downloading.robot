@@ -2,7 +2,7 @@
 Resource   tests/resources.robot
 Resource   tests/general.robot
 
-Suite Setup  run keyword  Set Selenium Speed  0.3
+Suite Setup  run keyword  Set Selenium Speed  0.4
 Test Setup    run keywords    Open new browser  AND  Empty Directory  ${OUTPUT DIR}/downloads_result
 Test Teardown  run keywords  Close all browsers  AND  Empty Directory  ${OUTPUT DIR}/downloads_result
 

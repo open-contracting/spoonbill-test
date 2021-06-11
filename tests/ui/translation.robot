@@ -3,7 +3,7 @@ Resource   tests/resources.robot
 Resource   tests/general.robot
 Library    tests.methods  WITH NAME    METHODS
 
-Suite Setup  run keyword  Set Selenium Speed  0.3
+Suite Setup  run keyword  Set Selenium Speed  0.4
 Test Setup    run keyword    Open new browser
 Test Teardown  run keyword  Close all browsers
 
