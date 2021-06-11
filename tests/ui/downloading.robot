@@ -72,12 +72,6 @@ Verify that file validated
     ...      Page Should Contain  Select fields manually
 
 
-Click on "Continue to select tables" button
-    ${button}=  Set Variable  //span[contains(text(), 'Continue to select tables')]/parent::node()
-    Wait Until Page Contains Element  ${button}
-    Scroll Element Into View  ${button}
-    Click Element  ${button}
-
 Check that element avaliable in the Available tables
     [Arguments]  ${element}
     @{result}=  Create List
