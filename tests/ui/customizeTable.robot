@@ -76,6 +76,7 @@ Customize table (Selection only one)
 
 
 Customize table (splitting)
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     Upload file by button  resources/2021-03-03.json
     Verify that file validated
@@ -140,14 +141,6 @@ Select element from "Available tables" list
     Wait Until Element Is Enabled  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]
     Sleep  1
     Click Element  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]
-
-
-Multi select from "Available tables" list
-    [Arguments]  ${element}
-    ${element}=  Convert To Lower Case  ${element}
-    Wait Until Element Is Enabled  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]
-    Sleep  1
-    Click Element  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]  modifier=CTRL
 
 
 Multi select from "Selected tables" list
