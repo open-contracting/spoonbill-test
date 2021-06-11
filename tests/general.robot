@@ -139,3 +139,10 @@ Multi select from "Selected tables" list
     ...      Click Element  //p[contains(text(), 'Selected tables')]/following-sibling::div//span[contains(text(), '${element}')]  modifier=COMMAND
     ...      ELSE  Click Element  //p[contains(text(), 'Selected tables')]/following-sibling::div//span[contains(text(), '${element}')]  modifier=CTRL
 
+
+Click on "Continue to select tables" button
+    ${button}=  Set Variable  //span[contains(text(), 'Continue to select tables')]/parent::node()
+    Wait Until Page Contains Element  ${button}
+    Scroll Element Into View  ${button}
+    Click Element  ${button}
+    Sleep  1
