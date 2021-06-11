@@ -212,7 +212,7 @@ Verify that file validated
     Wait until keyword succeeds
     ...      5 min
     ...      15 sec
-    ...      Page Should Contain  Analysis has been completed
+    ...      Page Should Contain  Your file has been checked and is ready to use.
 
 Click on "Continue to select tables" button
     ${button}=  Set Variable  //span[contains(text(), 'Continue to select tables')]/parent::node()

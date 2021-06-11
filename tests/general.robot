@@ -1,7 +1,6 @@
 *** Settings ***
 Resource   tests/resources.robot
 Library    RequestsLibrary
-Library    PostgreSQLDB
 Library    DebugLibrary
 Library    SeleniumLibrary
 Library    Collections
@@ -118,3 +117,25 @@ Include by id API
 Get active status
     ${status}=  Get Text  //div[contains(@class, 'step--active')]/div
     [Return]  ${status}
+
+
+Multi select from "Available tables" list
+    [Arguments]  ${element}
+    ${element}=  Convert To Lower Case  ${element}
+    Wait Until Element Is Enabled  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]
+    Sleep  1
+    ${system}=    Evaluate    platform.system()    platform
+    Run Keyword IF  '${system}' == 'Darwin'
+    ...      Click Element  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]  modifier=COMMAND
+    ...      ELSE   Click Element  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]  modifier=CTRL
+
+
+Multi select from "Selected tables" list
+    [Arguments]  ${element}
+    ${element}=  Convert To Lower Case  ${element}
+    Sleep  1
+    ${system}=    Evaluate    platform.system()    platform
+    Run Keyword IF  '${system}' == 'Darwin'
+    ...      Click Element  //p[contains(text(), 'Selected tables')]/following-sibling::div//span[contains(text(), '${element}')]  modifier=COMMAND
+    ...      ELSE  Click Element  //p[contains(text(), 'Selected tables')]/following-sibling::div//span[contains(text(), '${element}')]  modifier=CTRL
+

@@ -78,18 +78,6 @@ Select element from "Available tables" list
     Click Element  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]
 
 
-Multi select from "Available tables" list
-    [Arguments]  ${element}
-    ${element}=  Convert To Lower Case  ${element}
-    Click Element  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]  modifier=CTRL
-
-
-Multi select from "Selected tables" list
-    [Arguments]  ${element}
-    ${element}=  Convert To Lower Case  ${element}
-    Click Element  //p[contains(text(), 'Selected tables')]/following-sibling::div//span[contains(text(), '${element}')]  modifier=CTRL
-
-
 Click on "Add" button
     Click Element  //span[contains(text(), 'Add')]/parent::node()
 
