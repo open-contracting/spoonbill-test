@@ -8,6 +8,7 @@ Test Teardown  run keyword  Close all browsers
 
 *** Test Cases ***
 Check "OCDS headings only"
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     Upload file by button  resources/data1.json
     Verify that file validated
@@ -32,6 +33,7 @@ Check "OCDS headings only"
 
 
 Check "English user friendly headings to all tables"
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     Upload file by button  resources/data1.json
     Verify that file validated
@@ -61,6 +63,7 @@ Check "English user friendly headings to all tables"
 
 
 Check "English R friendly headings to all tables"
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     Upload file by button  resources/data1.json
     Verify that file validated
@@ -86,6 +89,7 @@ Check "English R friendly headings to all tables"
 
 
 Check "Spanish user friendly headings to all tables"
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     Upload file by button  resources/data1.json
     Verify that file validated
@@ -107,6 +111,7 @@ Check "Spanish user friendly headings to all tables"
 
 
 Check "Spanish R friendly headings to all tables"
+    [Tags]  noncritical
     Go to  ${MAIN_URL}
     Upload file by button  resources/data1.json
     Verify that file validated
