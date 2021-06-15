@@ -63,7 +63,10 @@ CLI test --human option
 *** Keywords ***
 File should exists
   [Arguments]    ${file_path}
-  File Should Exist  ${file_path}
+  Wait until keyword succeeds
+    ...      1 min
+    ...      3 sec
+    ...      File Should Exist  ${file_path}
   Log    File was successfully created ${file_path}
 
 
