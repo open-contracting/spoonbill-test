@@ -10,22 +10,24 @@ CLI simple test
     [Setup]  Run Keyword  Remove Files
     ...      resources/parties.csv
     ...      resources/tenders.csv
-    ...      resources/data.json.state
+    ...      data.json.state
     ...      resources/result.xlsx
     File Should Exist  resources/data.json  json is missing
     @{files}  List Directory  resources/
     Log  ${files}
-    ${result}=  Run Process  spoonbill --selection tenders,parties resources/data.json --csv resources/ --xlsx resources/result.xlsx
+    run process  pwd  alias=test  shell=True
+    ${r1}=  Get Process Result  test
+    Log  ${r1.stdout}
+    ${result}=  Run Process  spoonbill --selection tenders,parties data.json --csv resources/ --xlsx resources/result.xlsx
     ...      alias=myproc
     ...      shell=True
-    ...      cwd=${EXECDIR}
     @{files}  List Directory  resources/
     Log  ${files}
     ${r}=  Get Process Result  myproc
     Log  ${r.stdout}
     File should exists  ${EXECDIR}/resources/parties.csv
     File should exists  ${EXECDIR}/resources/tenders.csv
-    File should exists  ${EXECDIR}/resources/data.json.state
+    File should exists  ${EXECDIR}/data.json.state
     File should exists  ${EXECDIR}/resources/result.xlsx
     Open Excel Document  ${EXECDIR}/resources/result.xlsx  doc_id=result
     ${xlsx_sheets}=  Get List Sheet Names
@@ -39,15 +41,14 @@ CLI test --human option
     ...      resources/tenders.csv
     ...      resources/data.json.state
     ...      resources/result.xlsx
-    ${result}=  Run Process  spoonbill --selection tenders,parties resources/data.json --csv resources/ --xlsx resources/result.xlsx --human
+    ${result}=  Run Process  spoonbill --selection tenders,parties data.json --csv resources/ --xlsx resources/result.xlsx --human
     ...      alias=myproc
     ...      shell=True
-    ...      cwd=${EXECDIR}
     ${r}=  Get Process Result  myproc
     Log  ${r.stdout}
     File should exists  resources/parties.csv
     File should exists  resources/tenders.csv
-    File should exists  resources/data.json.state
+    File should exists  data.json.state
     File should exists  resources/result.xlsx
     Open Excel Document  resources/result.xlsx  doc_id=result
 
