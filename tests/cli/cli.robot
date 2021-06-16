@@ -12,17 +12,17 @@ CLI simple test
     ...      resources/tenders.csv
     ...      resources/data.json.state
     ...      resources/result.xlsx
-    ${result}=  Run Process  spoonbill --selection tenders,parties ../../resources/data.json --csv ../../resources/ --xlsx ../../resources/test.xlsx
+    ${result}=  Run Process  spoonbill --selection tenders,parties resources/data.json --csv resources/ --xlsx resources/result.xlsx
     ...      alias=myproc
     ...      shell=True
-    ...      cwd=${CURDIR}
+    ...      cwd=${EXECDIR}
     ${r}=  Get Process Result  myproc
     Log  ${r.stdout}
     File should exists  resources/parties.csv
     File should exists  resources/tenders.csv
     File should exists  resources/data.json.state
-    File should exists  resources/test.xlsx
-    Open Excel Document  resources/test.xlsx  doc_id=result
+    File should exists  resources/result.xlsx
+    Open Excel Document  resources/result.xlsx  doc_id=result
     ${xlsx_sheets}=  Get List Sheet Names
     List Should Contain Value	${xlsx_sheets}  parties
     List Should Contain Value	${xlsx_sheets}  tenders
@@ -34,17 +34,17 @@ CLI test --human option
     ...      resources/tenders.csv
     ...      resources/data.json.state
     ...      resources/result.xlsx
-    ${result}=  Run Process  spoonbill --selection tenders,parties ../../resources/data.json --csv ../../resources/ --xlsx ../../resources/test.xlsx --human
+    ${result}=  Run Process  spoonbill --selection tenders,parties resources/data.json --csv resources/ --xlsx resources/result.xlsx --human
     ...      alias=myproc
     ...      shell=True
-    ...      cwd=${CURDIR}
+    ...      cwd=${EXECDIR}
     ${r}=  Get Process Result  myproc
     Log  ${r.stdout}
     File should exists  resources/parties.csv
     File should exists  resources/tenders.csv
     File should exists  resources/data.json.state
-    File should exists  resources/test.xlsx
-    Open Excel Document  resources/test.xlsx  doc_id=result
+    File should exists  resources/result.xlsx
+    Open Excel Document  resources/result.xlsx  doc_id=result
 
     ${xlsx_tenders_row}=  Read Excel Row  0  sheet_name=tenders
     ${xlsx_parties_row}=  Read Excel Row  0  sheet_name=parties
