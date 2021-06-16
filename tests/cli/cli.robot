@@ -12,17 +12,22 @@ CLI simple test
     ...      resources/tenders.csv
     ...      resources/data.json.state
     ...      resources/result.xlsx
+    File Should Exist  resources/data.json  json is missing
+    @{files}  List Directory  resources/
+    Log  ${files}
     ${result}=  Run Process  spoonbill --selection tenders,parties resources/data.json --csv resources/ --xlsx resources/result.xlsx
     ...      alias=myproc
     ...      shell=True
     ...      cwd=${EXECDIR}
+    @{files}  List Directory  resources/
+    Log  ${files}
     ${r}=  Get Process Result  myproc
     Log  ${r.stdout}
-    File should exists  resources/parties.csv
-    File should exists  resources/tenders.csv
-    File should exists  resources/data.json.state
-    File should exists  resources/result.xlsx
-    Open Excel Document  resources/result.xlsx  doc_id=result
+    File should exists  ${EXECDIR}/resources/parties.csv
+    File should exists  ${EXECDIR}/resources/tenders.csv
+    File should exists  ${EXECDIR}/resources/data.json.state
+    File should exists  ${EXECDIR}/resources/result.xlsx
+    Open Excel Document  ${EXECDIR}/resources/result.xlsx  doc_id=result
     ${xlsx_sheets}=  Get List Sheet Names
     List Should Contain Value	${xlsx_sheets}  parties
     List Should Contain Value	${xlsx_sheets}  tenders
