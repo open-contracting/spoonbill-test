@@ -118,6 +118,22 @@ Customize table - sppliting through url
     Should Be Equal  '${count_tables}'  '1'
 
 
+Customize table (ordering)
+    [Tags]  noncritical  issue-253
+    Go to  ${MAIN_URL}
+    Upload file by button  resources/data1.json
+    Verify that file validated
+    Click on "Continue to select tables" button
+    Select all from available tables
+    Click on "Add" button
+    Sleep  0.5
+    ${expected_orders}=  Get list from selected tables
+    Click on "Continue" button
+    Sleep  1
+    ${current_order}=  Get tables from preview page
+    Lists Should Be Equal  ${expected_orders}  ${current_order}
+
+
 *** Keywords ***
 Verify that file validated
     Wait until keyword succeeds

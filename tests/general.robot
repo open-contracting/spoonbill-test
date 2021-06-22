@@ -131,6 +131,43 @@ Multi select from "Available tables" list
     ...      ELSE   Click Element  //p[contains(text(), 'Available tables')]/following-sibling::div//span[contains(text(), '${element}')]  modifier=CTRL
 
 
+Select all from available tables
+    Wait Until Element Is Enabled  //p[contains(text(), 'Available tables')]
+    Sleep  1
+    ${system}=    Evaluate    platform.system()    platform
+    @{available_tables}=  Get WebElements  //div[@class='tables-list'][1]/div
+    FOR  ${table}  IN  @{available_tables}
+        Run Keyword IF  '${system}' == 'Darwin'
+        ...      Click Element  ${table}  modifier=COMMAND
+        ...      ELSE  Click Element  ${table}  modifier=CTRL
+    END
+
+
+Get list from selected tables
+    Wait Until Element Is Enabled  //p[contains(text(), 'Selected tables')]
+    Sleep  1
+    @{selected_tables}=  Get WebElements  (//div[@class='tables-list'])[2]//span[@class='table-info__name']
+    @{result}=  Create List
+    FOR  ${table}  IN  @{selected_tables}
+        ${table_name}=  Get Text  ${table}
+        ${table_name}=  Convert To Lower Case  ${table_name}
+        ${table_name}=  Strip String  ${table_name}  mode=both
+        Append to List  ${result}  ${table_name}
+    END
+    [Return]  @{result}
+
+
+Get tables from preview page
+    @{tables}=  Get WebElements  //div[@role='tab']
+    @{result}=  Create List
+    FOR  ${table}  IN  @{tables}
+        ${table_name}=  Get Text  ${table}
+        ${table_name}=  Convert To Lower Case  ${table_name}
+        ${table_name}=  Strip String  ${table_name}  mode=both
+        Append to List  ${result}  ${table_name}
+    END
+    [Return]  @{result}
+
 Multi select from "Selected tables" list
     [Arguments]  ${element}
     ${element}=  Convert To Lower Case  ${element}
