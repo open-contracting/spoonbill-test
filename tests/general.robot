@@ -73,6 +73,7 @@ Upload file by button
 
 Upload file by url
     [Arguments]  ${url}=None
+    Wait Until Element Is Enabled  //textarea  5s
     Input text  //textarea  ${url}
     Click Element  //span[contains(text(), 'Submit')]/parent::node()
 
