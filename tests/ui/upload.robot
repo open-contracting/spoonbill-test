@@ -16,6 +16,19 @@ Upload json file by button
     Upload file by button  resources/data.json
     Verify that file validated
 
+
+Upload jsonl file by button
+    Go to  ${MAIN_URL}
+    Upload file by button  resources/sample-dataset.jsonl
+    Verify that file validated
+
+
+Upload gz file by button
+    Go to  ${MAIN_URL}
+    Upload file by button  resources/sample-dataset.json.gz
+    Verify that file validated
+
+
 Upload json file by url
     Go to  ${MAIN_URL}
     Click Element  //div[contains(text(), 'Supply a URL for JSON')]
