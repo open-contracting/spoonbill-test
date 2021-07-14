@@ -27,7 +27,6 @@ CLI simple test
     Log  ${r.stdout}
     File should exists  ${EXECDIR}/resources/parties.csv
     File should exists  ${EXECDIR}/resources/tenders.csv
-    File should exists  ${EXECDIR}/data.json.state
     File should exists  ${EXECDIR}/resources/result.xlsx
     Open Excel Document  ${EXECDIR}/resources/result.xlsx  doc_id=result
     ${xlsx_sheets}=  Get List Sheet Names
@@ -48,7 +47,6 @@ CLI test --human option
     Log  ${r.stdout}
     File should exists  resources/parties.csv
     File should exists  resources/tenders.csv
-    File should exists  data.json.state
     File should exists  resources/result.xlsx
     Open Excel Document  resources/result.xlsx  doc_id=result
 

@@ -204,6 +204,7 @@ Click on "Confirm Remove table" button
     Click Element  //span[contains(text(), 'Yes, remove table and continue')]/parent::node()
 
 Click on "Split arrays into separate tables"
+    Sleep  1
     Click Element  //label[contains(text(), 'Split arrays into separate tables')]
 
 Click on "Keep arrays in main table"

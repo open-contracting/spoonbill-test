@@ -17,7 +17,7 @@ Upload file
     [Arguments]  ${file_name}
     Create Session    httpbin    ${API_URL}  verify=true
     ${file_data}=    Get File For Streaming Upload    resources/data.json
-    &{files}=    Create Dictionary    file=${file_data}
+    &{files}=    Create Dictionary    files=${file_data}
     ${resp}=    POST On Session    httpbin    uploads/    files=${files}
 #    ${result}=    To Json    ${resp.json()}
     [Return]  ${resp.json()}
@@ -25,7 +25,7 @@ Upload file
 Upload file by url API
     [Arguments]  ${url}
     Create Session    httpbin    ${API_URL}  verify=true
-    &{data}=    Create Dictionary    url=${url}
+    &{data}=    Create Dictionary    urls=${url}
     ${resp}=    POST On Session    httpbin    urls/    ${data}
 #    ${result}=    To Json    ${resp.json()}
     [Return]  ${resp.json()}
