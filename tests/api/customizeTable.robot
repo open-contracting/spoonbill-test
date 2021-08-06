@@ -37,7 +37,7 @@ Upload json file
     ${response}=  Upload file  ${file_name}
     ${id}=  Get Variable Value  ${response['id']}
     Wait until keyword succeeds
-    ...      5 min
+    ...      1 min
     ...      15 sec
     ...      Check validation status
     ...      ${id}
