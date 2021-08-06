@@ -29,7 +29,7 @@ Check "OCDS headings only"
     ${count}=  Get count of thead by index  1
     Should Be Equal  '${count}'  '1'
     ${c_names}=  Get columnns by index  1  1
-    Should Be Equal  '/awards/date'  '${c_names[8]}'
+    Should Be Equal  '/parties/roles'  '${c_names[8]}'
 
 
 Check "English user friendly headings to all tables"
@@ -58,8 +58,8 @@ Check "English user friendly headings to all tables"
     Should Be Equal  '${count}'  '2'
     ${thead1}=  Get columnns by index  1  1
     ${thead2}=  Get columnns by index  1  2
-    Should Be Equal  'Award Date'  '${thead1[8]}'
-    Should Be Equal  '/awards/date'  '${thead2[8]}'
+    Should Be Equal  'Organization Party Roles'  '${thead1[8]}'
+    Should Be Equal  '/parties/roles'  '${thead2[8]}'
 
 
 Check "English R friendly headings to all tables"

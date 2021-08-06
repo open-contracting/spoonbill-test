@@ -57,7 +57,7 @@ Open new browser
     ${download directory}    Join Path    ${OUTPUT DIR}    downloads_result
     Create Directory    ${download directory}
     ${chrome_options} =     Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-    Call Method    ${chrome_options}   add_argument    headless
+#    Call Method    ${chrome_options}   add_argument    headless
     Call Method    ${chrome_options}   add_argument    disable-gpu
     ${disabled}    Create List    Chrome PDF Viewer
     ${prefs}    Create Dictionary    download.default_directory=${download directory}    plugins.plugins_disabled=${disabled}
