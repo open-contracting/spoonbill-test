@@ -28,7 +28,7 @@ Download xls
     Click on "Continue" button
     Sleep  1
     Click on "Generate as a multi sheet XLSX" button
-    Wait Until Element Is Enabled  //div[contains(@class, 'download-block completed')][1]  timeout=30
+    Sleep  10
     Click on "Download XLS" button
     Wait until keyword succeeds
     ...      2 min
@@ -57,7 +57,7 @@ Download csv
     Click on "Continue" button
     Sleep  1
     Click on "Generate tables as individual CSV files" button
-    Wait Until Element Is Enabled  //div[contains(@class, 'download-block completed')][1]  timeout=30
+    Sleep  10
     Click on "Download CSV" button
     ${file}=  Download should be done  ${OUTPUT DIR}/downloads_result
     Archive Should Contain File  ${file}  contracts.csv
