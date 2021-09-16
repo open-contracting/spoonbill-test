@@ -29,11 +29,11 @@ Upload gz file by button
     Verify that file validated
 
 
-Upload json file by url
-    Go to  ${MAIN_URL}
-    Click Element  //div[contains(text(), 'Supply a URL for JSON')]
-    Upload file by url  https://cdn-130.bayfiles.com/z6t2L7H0u9/5a01e51c-1631786582/2021-03-03.json
-    Verify that file validated
+#Upload json file by url
+#    Go to  ${MAIN_URL}
+#    Click Element  //div[contains(text(), 'Supply a URL for JSON')]
+#    Upload file by url  https://cdn-130.bayfiles.com/z6t2L7H0u9/5a01e51c-1631786582/2021-03-03.json
+#    Verify that file validated
 
 
 Upload img file by button
