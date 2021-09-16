@@ -53,12 +53,12 @@ Check "English user friendly headings to all tables"
     Sleep  1
     Select radio button by index  2
     Click on "Apply change" button
-    Sleep  1
+    Sleep  5
     ${count}=  Get count of thead by index  1
     Should Be Equal  '${count}'  '2'
     ${thead1}=  Get columnns by index  1  1
     ${thead2}=  Get columnns by index  1  2
-    Should Be Equal  'Organization Party Roles'  '${thead1[8]}'
+    Should Be Equal  'Parties: Organization: Party Roles'  '${thead1[8]}'
     Should Be Equal  '/parties/roles'  '${thead2[8]}'
 
 
@@ -101,12 +101,12 @@ Check "Spanish user friendly headings to all tables"
     Sleep  1
     Select radio button by index  4
     Click on "Apply change" button
-    Sleep  1
+    Sleep  5
     ${count}=  Get count of thead by index  1
     Should Be Equal  '${count}'  '2'
     ${thead1}=  Get columnns by index  1  1
     ${thead2}=  Get columnns by index  1  2
-    Should Be Equal  'Planning Rationale'  '${thead1[4]}'
+    Should Be Equal  'Planeación: Justificación'  '${thead1[4]}'
     Should Be Equal  '/planning/rationale'  '${thead2[4]}'
 
 

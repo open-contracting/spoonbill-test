@@ -100,17 +100,17 @@ Customize table - sppliting through url
     [Tags]  noncritical  issue-205
     Go to  ${MAIN_URL}
     Click Element  //div[contains(text(), 'Supply a URL for JSON')]
-    Upload file by url  https://www.contrataciones.gov.py/datos/api/v3/doc/ocds/releases/id/394282-adquisicion-cubiertas-maquinarias-vehiculos-utilitarios-annp-1-1621414358
+    Upload file by url  https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1w-anUjSI4jkqwYIqOzTAHZOEk1CNG3O9
     Verify that file validated
     Click on "Continue to select tables" button
-    Multi select from "Available tables" list  tenders
+    Multi select from "Available tables" list  awards
     Click on "Add" button
     Click on "Continue" button
     Click on "Split arrays into separate tables"
     Sleep  1
     ${split_tables}=  Get WebElements  //div[@class='app-table']
     ${count_tables}=  Get Length  ${split_tables}
-    Should Be Equal  '${count_tables}'  '4'
+    Should Be Equal  '${count_tables}'  '3'
     Click on "Keep arrays in main table"
     Sleep  1
     ${unsplit_tables}=  Get WebElements  //div[@class='app-table']
