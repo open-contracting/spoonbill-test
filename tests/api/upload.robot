@@ -15,7 +15,7 @@ Upload json file
 
 
 Upload json by url
-    ${response}=  Upload file by url API  https://standard.open-contracting.org/media/95124a7c-aea9-42bc-b208-d60d9d1ae495/ocds-213czf-000-00001-02-tender.json
+    ${response}=  Upload file by url API  https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1w-anUjSI4jkqwYIqOzTAHZOEk1CNG3O9
     ${id}=  Get Variable Value  ${response['id']}
     Wait until keyword succeeds
     ...      1 min
