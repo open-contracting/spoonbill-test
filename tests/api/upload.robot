@@ -15,7 +15,7 @@ Upload json file
 
 
 Upload json by url
-    ${response}=  Upload file by url API  https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1w-anUjSI4jkqwYIqOzTAHZOEk1CNG3O9
+    ${response}=  Upload file by url API  https://cdn-130.bayfiles.com/z6t2L7H0u9/5a01e51c-1631786582/2021-03-03.json
     ${id}=  Get Variable Value  ${response['id']}
     Wait until keyword succeeds
     ...      1 min
