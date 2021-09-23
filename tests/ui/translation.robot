@@ -23,7 +23,7 @@ Translate stepper header
     ${download}=  Get Text  ${stepper_items[4]}
     ${download_translate}=  METHODS.get_translate_by_text_from_file  ${WEB_TRANSLATE_FILE}  ${download}
 
-    Select language  Spanish
+    Select language  Española
     Sleep  1
     ${stepper_items_spanish}=  Get WebElements  //div[@class="v-stepper__label"]/span
     ${upload_file_spanish}=  Get Text  ${stepper_items_spanish[0]}
@@ -46,7 +46,7 @@ Translate Upload Json File button
     ${upload_json_file_translate}=  METHODS.get_translate_by_text_from_file  ${WEB_TRANSLATE_FILE}  ${upload_json_file}
 
     Assign Id To Element  ${upload_json_file_element}  upload-json
-    Select language  Spanish
+    Select language  Española
 
     ${upload_json_file_es}=  Get WebElement  //div[@id='upload-json']
     ${upload_json_file_es}=  Get Text  ${upload_json_file_es}
@@ -62,7 +62,7 @@ Translate Supply a URL for JSON button
     ${upload_json_url_translate}=  METHODS.get_translate_by_text_from_file  ${WEB_TRANSLATE_FILE}  ${upload_json_url}
 
     Assign Id To Element  ${upload_json_url_element}  upload-url-json
-    Select language  Spanish
+    Select language  Española
 
     ${upload_json_url_es}=  Get WebElement  //div[@id='upload-url-json']
     ${upload_json_url_es}=  Get Text  ${upload_json_url_es}
@@ -78,7 +78,7 @@ Translate Browse files button
     ${browse_files_translate}=  METHODS.get_translate_by_text_from_file  ${WEB_TRANSLATE_FILE}  ${browse_files}
 
     Assign Id To Element  ${browse_files_element}  browse-files
-    Select language  Spanish
+    Select language  Española
 
     ${browse_files_es}=  Get WebElement  //span[@id='browse-files']
     ${browse_files_es}=  Get Text  ${browse_files_es}
@@ -97,7 +97,7 @@ Translate "Continue to select tables" button
     ${continue_translate}=  METHODS.get_translate_by_text_from_file  ${WEB_TRANSLATE_FILE}  ${continue}
 
     Assign Id To Element  ${continue_element}  continue-select-tables
-    Select language  Spanish
+    Select language  Española
     ${continue_es}=  Get WebElement  //span[@id='continue-select-tables']
     ${continue_es}=  Get Text  ${continue_es}
 
@@ -139,7 +139,7 @@ Translate on Select Data page
     Assign Id To Element  ${Select data to flatten to Excel/CSV element}  select-data-to-flatten
     Assign Id To Element  ${Continue element}  continue-element
 
-    Select language  Spanish
+    Select language  Española
 
     ${Available tables element}=  Get WebElement  //p[@id="available-tables-element"]
     ${Selected tables element}=  Get WebElement  //p[@id="selected-tables-element"]
@@ -193,7 +193,7 @@ Translate on Customize table page
     Assign Id To Element  ${Remove table element}  remove-table-element
     Assign Id To Element  ${Save and Continue element}  save-and-continue-element
 
-    Select language  Spanish
+    Select language  Española
 
     ${Customize Tables element}=  Get WebElement  //h2[@id="customize-tables-element"]
     ${Available data element}=  Get WebElement  //p[@id="available-data-element"]

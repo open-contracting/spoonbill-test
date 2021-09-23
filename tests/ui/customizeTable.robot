@@ -84,38 +84,57 @@ Customize table (splitting)
     Multi select from "Available tables" list  awards
     Click on "Add" button
     Click on "Continue" button
+    Page Should Contain  Keep arrays in main table
+
+    Sleep  1
+    ${split_tables}=  Get WebElements  //div[@class='app-table']
+    ${count_tables}=  Get Length  ${split_tables}
+    Should Be Equal  '${count_tables}'  '3'
+
+    Click on "Keep arrays in main table"
+    Sleep  1
+    ${unsplit_tables}=  Get WebElements  //div[@class='app-table']
+    ${count_tables}=  Get Length  ${unsplit_tables}
+    Should Be Equal  '${count_tables}'  '1'
+
     Click on "Split arrays into separate tables"
     Sleep  1
     ${split_tables}=  Get WebElements  //div[@class='app-table']
     ${count_tables}=  Get Length  ${split_tables}
     Should Be Equal  '${count_tables}'  '3'
     Click on "Keep arrays in main table"
-    Sleep  1
-    ${unsplit_tables}=  Get WebElements  //div[@class='app-table']
-    ${count_tables}=  Get Length  ${unsplit_tables}
-    Should Be Equal  '${count_tables}'  '1'
 
 
 Customize table - sppliting through url
     [Tags]  noncritical  issue-205
     Go to  ${MAIN_URL}
     Click Element  //div[contains(text(), 'Supply a URL for JSON')]
-    Upload file by url  https://cdn-130.bayfiles.com/z6t2L7H0u9/5a01e51c-1631786582/2021-03-03.json
+    Upload file by url  https://www.dropbox.com/s/m0rb09erevdm5o6/2021-03-03.json?dl=1
     Verify that file validated
     Click on "Continue to select tables" button
     Multi select from "Available tables" list  awards
     Click on "Add" button
     Click on "Continue" button
+    Page Should Contain  Keep arrays in main table
+
+    Sleep  1
+    ${split_tables}=  Get WebElements  //div[@class='app-table']
+    ${count_tables}=  Get Length  ${split_tables}
+    Should Be Equal  '${count_tables}'  '3'
+
+    Click on "Keep arrays in main table"
+    Sleep  1
+
+    ${unsplit_tables}=  Get WebElements  //div[@class='app-table']
+    ${count_tables}=  Get Length  ${unsplit_tables}
+    Should Be Equal  '${count_tables}'  '1'
+
     Click on "Split arrays into separate tables"
     Sleep  1
     ${split_tables}=  Get WebElements  //div[@class='app-table']
     ${count_tables}=  Get Length  ${split_tables}
     Should Be Equal  '${count_tables}'  '3'
     Click on "Keep arrays in main table"
-    Sleep  1
-    ${unsplit_tables}=  Get WebElements  //div[@class='app-table']
-    ${count_tables}=  Get Length  ${unsplit_tables}
-    Should Be Equal  '${count_tables}'  '1'
 
 
 Customize table (ordering)
