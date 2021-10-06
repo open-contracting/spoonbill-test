@@ -28,7 +28,6 @@ Download xls
     Click on "Continue" button
     Sleep  1
     Click on "Generate as a multi sheet XLSX" button
-    Sleep  10
     Click on "Download XLS" button
     Wait until keyword succeeds
     ...      2 min
@@ -57,7 +56,6 @@ Download csv
     Click on "Continue" button
     Sleep  1
     Click on "Generate tables as individual CSV files" button
-    Sleep  10
     Click on "Download CSV" button
     ${file}=  Download should be done  ${OUTPUT DIR}/downloads_result
     Archive Should Contain File  ${file}  contracts.csv
@@ -124,9 +122,13 @@ Click on "Remove table" button
     Click Element  //span[contains(text(), 'Remove table')]/parent::node()
 
 Click on "Download XLS" button
+    Wait Until Page Contains  Download XLSX  15
+    Sleep  1
     Click Element  //div[@class="download-option"][1]//span[contains(text(), 'Download')]
 
 Click on "Download CSV" button
+    Wait Until Page Contains  Download CSV  15
+    Sleep  1
     Click Element  //div[@class="download-option"][2]//span[contains(text(), 'Download')]
 
 Click on "Generate as a multi sheet XLSX" button

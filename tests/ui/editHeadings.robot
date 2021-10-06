@@ -53,7 +53,7 @@ Check "English user friendly headings to all tables"
     Sleep  1
     Select radio button by index  2
     Click on "Apply change" button
-    Sleep  5
+    Sleep  15
     ${count}=  Get count of thead by index  1
     Should Be Equal  '${count}'  '2'
     ${thead1}=  Get columnns by index  1  1

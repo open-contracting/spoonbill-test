@@ -86,23 +86,21 @@ Customize table (splitting)
     Click on "Continue" button
     Page Should Contain  Keep arrays in main table
 
-    Sleep  1
+    Sleep  10
     ${split_tables}=  Get WebElements  //div[@class='app-table']
     ${count_tables}=  Get Length  ${split_tables}
     Should Be Equal  '${count_tables}'  '3'
-
     Click on "Keep arrays in main table"
-    Sleep  1
+    Sleep  10
     ${unsplit_tables}=  Get WebElements  //div[@class='app-table']
     ${count_tables}=  Get Length  ${unsplit_tables}
     Should Be Equal  '${count_tables}'  '1'
 
     Click on "Split arrays into separate tables"
-    Sleep  1
+    Sleep  10
     ${split_tables}=  Get WebElements  //div[@class='app-table']
     ${count_tables}=  Get Length  ${split_tables}
-    Should Be Equal  '${count_tables}'  '3'
-    Click on "Keep arrays in main table"
+    Should Be Equal  '${count_tables}'  '2'
 
 
 Customize table - sppliting through url
@@ -117,24 +115,23 @@ Customize table - sppliting through url
     Click on "Continue" button
     Page Should Contain  Keep arrays in main table
 
-    Sleep  1
+    Sleep  10
     ${split_tables}=  Get WebElements  //div[@class='app-table']
     ${count_tables}=  Get Length  ${split_tables}
     Should Be Equal  '${count_tables}'  '3'
 
     Click on "Keep arrays in main table"
-    Sleep  1
+    Sleep  10
 
     ${unsplit_tables}=  Get WebElements  //div[@class='app-table']
     ${count_tables}=  Get Length  ${unsplit_tables}
     Should Be Equal  '${count_tables}'  '1'
 
     Click on "Split arrays into separate tables"
-    Sleep  1
+    Sleep  10
     ${split_tables}=  Get WebElements  //div[@class='app-table']
     ${count_tables}=  Get Length  ${split_tables}
-    Should Be Equal  '${count_tables}'  '3'
-    Click on "Keep arrays in main table"
+    Should Be Equal  '${count_tables}'  '2'
 
 
 Customize table (ordering)
@@ -227,4 +224,9 @@ Click on "Split arrays into separate tables"
     Click Element  //label[contains(text(), 'Split arrays into separate tables')]
 
 Click on "Keep arrays in main table"
+    Scroll Element Into View  //label[contains(text(), 'Keep arrays in main table')]
     Click Element  //label[contains(text(), 'Keep arrays in main table')]
+    Wait Until Page Contains  Remove Array table
+    Click Element  //label[contains(.,'Remove Array table')]
+    Sleep  2
+    Click Element  //div[contains(@class, 'dialog-content')]//button[contains(.,'Continue')]
