@@ -1,0 +1,10 @@
+# .robot files (compare to "Library" instructions in tests/general.robot)
+robotframework-archivelibrary
+robotframework-csvlib
+robotframework-debuglibrary
+robotframework-excellib
+robotframework-requests
+robotframework-seleniumlibrary
+
+# .py files
+polib
