@@ -9,7 +9,7 @@ Test Teardown  run keyword  Close all browsers
 *** Test Cases ***
 Default selected button is "Upload JSON file"
     Go to  ${MAIN_URL}
-    Verify that "Upload JSON file" button sellected by default
+    Verify that "Upload JSON file" button selected by default
 
 Upload json file by button
     Go to  ${MAIN_URL}
@@ -49,7 +49,7 @@ Upload wrong json file by button
 
 
 *** Keywords ***
-Verify that "Upload JSON file" button sellected by default
+Verify that "Upload JSON file" button selected by default
     Element Attribute Value Should Be  //div[contains(text(), 'Upload JSON file')]  class  option option--selected
 
 Verify that file validated

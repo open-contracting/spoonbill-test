@@ -70,7 +70,7 @@ Verify that file validated
     ...      Page Should Contain  Select fields manually
 
 
-Check that element avaliable in the Available tables
+Check that element available in the Available tables
     [Arguments]  ${element}
     @{result}=  Create List
     ${available_items}=  Get WebElements  //p[contains(text(), 'Available tables')]/following-sibling::div//span[@class='table-info__name']
@@ -89,7 +89,7 @@ Check that selection table displays on page
     Should Be Equal  ${current_selection}  ${expected}
 
 
-Check that element avaliable in the Selected tables
+Check that element available in the Selected tables
     [Arguments]  ${element}
     @{result}=  Create List
     ${available_items}=  Get WebElements  //p[contains(text(), 'Selected tables')]/following-sibling::div//span[@class='table-info__name']
@@ -153,7 +153,7 @@ Get count of thead by index
     ${count}=  Get Length  ${thead}
     [Return]  ${count}
 
-Get columnns by index
+Get columns by index
     [Arguments]  ${table_index}  ${thead_index}
     @{result}=  Create List
     ${columns}=  Get WebElements  //div[@class='app-table'][${table_index}]//thead/tr[${thead_index}]//th

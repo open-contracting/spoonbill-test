@@ -28,7 +28,7 @@ Check "OCDS headings only"
     Sleep  1
     ${count}=  Get count of thead by index  1
     Should Be Equal  '${count}'  '1'
-    ${c_names}=  Get columnns by index  1  1
+    ${c_names}=  Get columns by index  1  1
     Should Be Equal  '/parties/roles'  '${c_names[8]}'
 
 
@@ -56,8 +56,8 @@ Check "English user friendly headings to all tables"
     Sleep  15
     ${count}=  Get count of thead by index  1
     Should Be Equal  '${count}'  '2'
-    ${thead1}=  Get columnns by index  1  1
-    ${thead2}=  Get columnns by index  1  2
+    ${thead1}=  Get columns by index  1  1
+    ${thead2}=  Get columns by index  1  2
     Should Be Equal  'Parties: Organization: Party Roles'  '${thead1[8]}'
     Should Be Equal  '/parties/roles'  '${thead2[8]}'
 
@@ -82,8 +82,8 @@ Check "English R friendly headings to all tables"
     Sleep  1
     ${count}=  Get count of thead by index  1
     Should Be Equal  '${count}'  '2'
-    ${thead1}=  Get columnns by index  1  1
-    ${thead2}=  Get columnns by index  1  2
+    ${thead1}=  Get columns by index  1  1
+    ${thead2}=  Get columns by index  1  2
     Should Be Equal  '/buyer/name'  '${thead1[4]}'
     Should Be Equal  '/buyer/name'  '${thead2[4]}'
 
@@ -104,8 +104,8 @@ Check "Spanish user friendly headings to all tables"
     Sleep  5
     ${count}=  Get count of thead by index  1
     Should Be Equal  '${count}'  '2'
-    ${thead1}=  Get columnns by index  1  1
-    ${thead2}=  Get columnns by index  1  2
+    ${thead1}=  Get columns by index  1  1
+    ${thead2}=  Get columns by index  1  2
     Should Be Equal  'Planeación: Justificación'  '${thead1[4]}'
     Should Be Equal  '/planning/rationale'  '${thead2[4]}'
 
@@ -126,8 +126,8 @@ Check "Spanish R friendly headings to all tables"
     Sleep  1
     ${count}=  Get count of thead by index  1
     Should Be Equal  '${count}'  '2'
-    ${thead1}=  Get columnns by index  1  1
-    ${thead2}=  Get columnns by index  1  2
+    ${thead1}=  Get columns by index  1  1
+    ${thead2}=  Get columns by index  1  2
     Should Be Equal  'planning_rationale'  '${thead1[4]}'
     Should Be Equal  '/planning/rationale'  '${thead2[4]}'
 
@@ -140,7 +140,7 @@ Verify that file validated
     ...      Page Should Contain  Select fields manually
 
 
-Check that element avaliable in the Available tables
+Check that element available in the Available tables
     [Arguments]  ${element}
     @{result}=  Create List
     ${available_items}=  Get WebElements  //p[contains(text(), 'Available tables')]/following-sibling::div//span[@class='table-info__name']
@@ -159,7 +159,7 @@ Check that selection table displays on page
     Should Be Equal  ${current_selection}  ${expected}
 
 
-Check that element avaliable in the Selected tables
+Check that element available in the Selected tables
     [Arguments]  ${element}
     @{result}=  Create List
     ${available_items}=  Get WebElements  //p[contains(text(), 'Selected tables')]/following-sibling::div//span[@class='table-info__name']
@@ -212,7 +212,7 @@ Get count of thead by index
     ${count}=  Get Length  ${thead}
     [Return]  ${count}
 
-Get columnns by index
+Get columns by index
     [Arguments]  ${table_index}  ${thead_index}
     @{result}=  Create List
     ${columns}=  Get WebElements  //div[@class='app-table'][${table_index}]//thead/tr[${thead_index}]//th

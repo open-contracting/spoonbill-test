@@ -12,27 +12,27 @@ Select tables from Available tables
     Upload file by button  resources/data.json
     Verify that file validated
     Click on "Continue to select tables" button
-    Check that element avaliable in the Available tables  Parties
-    Check that element avaliable in the Available tables  Tenders
-    Check that element avaliable in the Available tables  Documents
+    Check that element available in the Available tables  Parties
+    Check that element available in the Available tables  Tenders
+    Check that element available in the Available tables  Documents
     Select element from "Available tables" list  parties
     Click on "Add" button
-    Run Keyword And Expect Error  *  Check that element avaliable in the Available tables  Parties
+    Run Keyword And Expect Error  *  Check that element available in the Available tables  Parties
     Multi select from "Available tables" list  tenders
     Multi select from "Available tables" list  documents
     Click on "Add" button
-    Run Keyword And Expect Error  *  Check that element avaliable in the Available tables  Tenders
-    Run Keyword And Expect Error  *  Check that element avaliable in the Available tables  Documents
-    Check that element avaliable in the Selected tables  Parties
-    Check that element avaliable in the Selected tables  Tenders
-    Check that element avaliable in the Selected tables  Documents
+    Run Keyword And Expect Error  *  Check that element available in the Available tables  Tenders
+    Run Keyword And Expect Error  *  Check that element available in the Available tables  Documents
+    Check that element available in the Selected tables  Parties
+    Check that element available in the Selected tables  Tenders
+    Check that element available in the Selected tables  Documents
     Multi select from "Selected tables" list  parties
     Multi select from "Selected tables" list  documents
     Click on "Remove" button
-    Run Keyword And Expect Error  *  Check that element avaliable in the Selected tables  Parties
-    Run Keyword And Expect Error  *  Check that element avaliable in the Selected tables  Documents
-    Check that element avaliable in the Available tables  Parties
-    Check that element avaliable in the Available tables  Documents
+    Run Keyword And Expect Error  *  Check that element available in the Selected tables  Parties
+    Run Keyword And Expect Error  *  Check that element available in the Selected tables  Documents
+    Check that element available in the Available tables  Parties
+    Check that element available in the Available tables  Documents
 
 
 *** Keywords ***
@@ -43,7 +43,7 @@ Verify that file validated
     ...      Page Should Contain  Select fields manually
 
 
-Check that element avaliable in the Available tables
+Check that element available in the Available tables
     [Arguments]  ${element}
     @{result}=  Create List
     Sleep  1
@@ -55,7 +55,7 @@ Check that element avaliable in the Available tables
     List Should Contain Value  ${result}  ${element}
 
 
-Check that element avaliable in the Selected tables
+Check that element available in the Selected tables
     [Arguments]  ${element}
     @{result}=  Create List
     ${available_items}=  Get WebElements  //p[contains(text(), 'Selected tables')]/following-sibling::div//span[@class='table-info__name']

@@ -7,11 +7,11 @@ Available tables
     ${id}=  Upload json file
     ...      data.json
     ${data}=  Get Uploads information  ${id}
-    Check that element exists in Avaliable tables  parties  ${data}
-    Check that element exists in Avaliable tables  tenders  ${data}
-    Check that element exists in Avaliable tables  documents  ${data}
-    Run Keyword And Expect Error  *  Check that element exists in Avaliable tables  contracts  ${data}
-    Run Keyword And Expect Error  *  Check that element exists in Avaliable tables  planning  ${data}
+    Check that element exists in Available tables  parties  ${data}
+    Check that element exists in Available tables  tenders  ${data}
+    Check that element exists in Available tables  documents  ${data}
+    Run Keyword And Expect Error  *  Check that element exists in Available tables  contracts  ${data}
+    Run Keyword And Expect Error  *  Check that element exists in Available tables  planning  ${data}
 
 
 
@@ -29,7 +29,7 @@ Upload json file
     [Return]  ${id}
 
 
-Check that element exists in Avaliable tables
+Check that element exists in Available tables
     [Arguments]  ${element}  ${data}
     @{result}=  Create List
     FOR  ${item}  IN  @{data['available_tables']}

@@ -212,7 +212,7 @@ Translate on Customize table page
 
 
 *** Keywords ***
-Verify that "Upload JSON file" button sellected by default
+Verify that "Upload JSON file" button selected by default
     Element Attribute Value Should Be  //div[contains(text(), 'Upload JSON file')]  class  option option--selected
 
 Verify that file validated
