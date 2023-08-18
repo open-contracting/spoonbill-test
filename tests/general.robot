@@ -61,7 +61,7 @@ Open new browser
     Call Method    ${chrome_options}   add_argument    disable-gpu
     # WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.
     # (unknown error: DevToolsActivePort file doesn't exist)
-    Call Method    ${chrome_options}   add_argument    disable-dev-shm-usage
+    Call Method    ${chrome_options}   add_argument    no-sandbox
     ${disabled}    Create List    Chrome PDF Viewer
     ${prefs}    Create Dictionary    download.default_directory=${download directory}    plugins.plugins_disabled=${disabled}
     Call Method    ${chrome options}    add_experimental_option    prefs    ${prefs}
