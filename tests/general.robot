@@ -59,6 +59,9 @@ Open new browser
     ${chrome_options} =     Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     Call Method    ${chrome_options}   add_argument    headless
     Call Method    ${chrome_options}   add_argument    disable-gpu
+    # WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.
+    # (unknown error: DevToolsActivePort file doesn't exist)
+    Call Method    ${chrome_options}   add_argument    disable-dev-shm-usage
     ${disabled}    Create List    Chrome PDF Viewer
     ${prefs}    Create Dictionary    download.default_directory=${download directory}    plugins.plugins_disabled=${disabled}
     Call Method    ${chrome options}    add_experimental_option    prefs    ${prefs}
