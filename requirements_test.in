@@ -1,3 +1,5 @@
+webdrivermanager
+
 # .robot files (compare to "Library" instructions in tests/general.robot)
 robotframework-archivelibrary
 robotframework-csvlib
