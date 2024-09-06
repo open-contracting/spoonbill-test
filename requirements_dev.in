@@ -1,4 +1,5 @@
 # .robot files (compare to "Library" instructions in tests/general.robot)
+spoonbill
 robotframework-archivelibrary
 robotframework-csvlib
 robotframework-debuglibrary
@@ -8,3 +9,6 @@ robotframework-seleniumlibrary
 
 # .py files
 polib
+
+# lint
+pre-commit
