@@ -9,6 +9,3 @@ robotframework-seleniumlibrary
 
 # .py files
 polib
-
-# lint
-pre-commit
