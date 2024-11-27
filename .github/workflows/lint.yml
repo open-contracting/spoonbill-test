@@ -5,6 +5,8 @@ jobs:
     uses: open-contracting/.github/.github/workflows/lint.yml@main
     permissions:
       contents: write
+    secrets:
+      personal-access-token: ${{ secrets.PAT }}
     with:
       ocds-noindent: 'yes'
       skip-linter-requirements: true
