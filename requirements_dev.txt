@@ -26,7 +26,7 @@ exceptiongroup==1.1.3
     # via trio-websocket
 flatten-dict==0.4.2
     # via spoonbill
-h11==0.14.0
+h11==0.16.0
     # via wsproto
 idna==3.7
     # via
@@ -119,7 +119,7 @@ trio-websocket==0.10.3
     # via selenium
 url-normalize==1.4.3
     # via requests-cache
-urllib3==2.2.2
+urllib3[socks]==2.2.2
     # via
     #   requests
     #   requests-cache
