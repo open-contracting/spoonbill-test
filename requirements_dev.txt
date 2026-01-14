@@ -119,7 +119,7 @@ trio-websocket==0.10.3
     # via selenium
 url-normalize==1.4.3
     # via requests-cache
-urllib3==2.6.2
+urllib3==2.6.3
     # via
     #   requests
     #   requests-cache
